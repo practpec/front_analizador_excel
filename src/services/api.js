@@ -35,9 +35,11 @@ export const contactsApi = {
     return response.data
   },
 
-  // Obtener todos los contactos
-  getAllContacts: async () => {
-    const response = await api.get('/contacts')
+  // Obtener todos los contactos con paginación
+  getAllContacts: async (page = 1, limit = 50) => {
+    const response = await api.get('/contacts', {
+      params: { page, limit }
+    })
     return response.data
   },
 
@@ -55,9 +57,11 @@ export const contactsApi = {
     return response.data
   },
 
-  // Validar todos los contactos
-  validateContacts: async () => {
-    const response = await api.get('/contacts/validate')
+  // Validar todos los contactos con paginación
+  validateContacts: async (page = 1, limit = 50) => {
+    const response = await api.get('/contacts/validate', {
+      params: { page, limit }
+    })
     return response.data
   },
 
